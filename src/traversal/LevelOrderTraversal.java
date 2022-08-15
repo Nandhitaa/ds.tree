@@ -1,19 +1,30 @@
 package traversal;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 import ds.TreeNode;
 
-public class PreOrderTraversal {
-
-	public static void traverseInternal(TreeNode node) {
-		if (node == null)
-			return;
-		System.out.print(node.val + "->");
-		traverseInternal(node.left);
-		traverseInternal(node.right);
-	}
-
+public class LevelOrderTraversal {
 	public static void traverse(TreeNode root) {
-		traverseInternal(root);
+		Queue<TreeNode> queue = new LinkedList<TreeNode>();
+
+		if (root == null)
+			return;
+
+		queue.add(root);
+
+		while (!queue.isEmpty()) {
+			TreeNode node = queue.poll();
+			System.out.print(node.val + "->");
+			if (node.left != null) {
+				queue.add(node.left);
+			}
+			if (node.right != null) {
+				queue.add(node.right);
+			}
+		}
+
 		System.out.println();
 	}
 
@@ -36,5 +47,4 @@ public class PreOrderTraversal {
 
 		traverse(root);
 	}
-
 }

@@ -1,19 +1,32 @@
 package traversal;
 
+import java.util.Stack;
+
 import ds.TreeNode;
 
-public class PreOrderTraversal {
-
-	public static void traverseInternal(TreeNode node) {
-		if (node == null)
-			return;
-		System.out.print(node.val + "->");
-		traverseInternal(node.left);
-		traverseInternal(node.right);
-	}
+public class IterativeInOrderTraversal {
 
 	public static void traverse(TreeNode root) {
-		traverseInternal(root);
+		if (root == null)
+			return;
+
+		Stack<TreeNode> stack = new Stack<TreeNode>();
+
+		TreeNode node = root;
+
+		while (true) {
+			if (node == null) {
+				if (stack.isEmpty()) {
+					break;
+				}
+				node = stack.pop();
+				System.out.print(node.val + "->");
+				node = node.right;
+			} else {
+				stack.push(node);
+				node = node.left;
+			}
+		}
 		System.out.println();
 	}
 
@@ -36,5 +49,4 @@ public class PreOrderTraversal {
 
 		traverse(root);
 	}
-
 }

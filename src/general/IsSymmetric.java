@@ -1,20 +1,18 @@
-package traversal;
+package general;
 
 import ds.TreeNode;
 
-public class PreOrderTraversal {
+public class IsSymmetric {
 
-	public static void traverseInternal(TreeNode node) {
-		if (node == null)
-			return;
-		System.out.print(node.val + "->");
-		traverseInternal(node.left);
-		traverseInternal(node.right);
-	}
+	private boolean isSymmetric(TreeNode left, TreeNode right) {
+		if (left == null || right == null) {
+			return left == right;
+		}
+		if (left.val != right.val) {
+			return false;
+		}
 
-	public static void traverse(TreeNode root) {
-		traverseInternal(root);
-		System.out.println();
+		return isSymmetric(left.left, right.right) && isSymmetric(left.right, right.left);
 	}
 
 	public static void main(String[] args) {
@@ -34,7 +32,9 @@ public class PreOrderTraversal {
 		node3.left = node6;
 		node3.right = node7;
 
-		traverse(root);
-	}
+		IsSymmetric obj = new IsSymmetric();
 
+		boolean result = obj.isSymmetric(root, root);
+		System.out.println(result);
+	}
 }

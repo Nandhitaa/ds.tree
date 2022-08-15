@@ -2,13 +2,13 @@ package traversal;
 
 import ds.TreeNode;
 
-public class PreOrderTraversal {
-
+public class InOrderTraversal {
 	public static void traverseInternal(TreeNode node) {
-		if (node == null)
+		if (node == null) {
 			return;
-		System.out.print(node.val + "->");
+		}
 		traverseInternal(node.left);
+		System.out.print(node.val + "->");
 		traverseInternal(node.right);
 	}
 
@@ -36,5 +36,4 @@ public class PreOrderTraversal {
 
 		traverse(root);
 	}
-
 }
