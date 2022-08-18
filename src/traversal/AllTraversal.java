@@ -28,7 +28,7 @@ public class AllTraversal {
 			else if (pair.verticalLevel == 2) {
 				in.add(pair.node.val);
 				stack.push(new Pair(pair.node, pair.verticalLevel + 1));
-				if (pair.node.left != null) {
+				if (pair.node.right != null) {
 					stack.push(new Pair(pair.node.right, 1));
 				}
 			}

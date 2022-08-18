@@ -8,21 +8,21 @@ public class BinaryTreeToDLL {
 	TreeNode prev = null;
 	static TreeNode head = null;
 
-	public void binaryTreeToDll(TreeNode root) {
-		if (root == null)
+	public void binaryTreeToDll(TreeNode node) {
+		if (node == null)
 			return;
 
-		binaryTreeToDll(root.left);
+		binaryTreeToDll(node.left);
 
 		if (prev == null) {
-			head = root;
+			head = node;
 		} else {
-			prev.right = root;
-			root.left = prev;
+			prev.right = node;
+			node.left = prev;
 		}
-		prev = root;
+		prev = node;
 
-		binaryTreeToDll(root.right);
+		binaryTreeToDll(node.right);
 
 	}
 
