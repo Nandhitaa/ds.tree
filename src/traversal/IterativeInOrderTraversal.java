@@ -22,7 +22,8 @@ public class IterativeInOrderTraversal {
 				node = stack.pop();
 				System.out.print(node.val + "->");
 				node = node.right;
-			} else {
+			}
+			else {
 				stack.push(node);
 				node = node.left;
 			}
