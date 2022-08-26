@@ -12,7 +12,7 @@ import ds.TreeNode;
 
 public class BottomView {
 
-	public List<Integer> getTopView(TreeNode root) {
+	public List<Integer> getBottomView(TreeNode root) {
 		List<Integer> ans = new ArrayList<Integer>();
 		Queue<Pair> queue = new LinkedList<Pair>();
 		TreeMap<Integer, Integer> map = new TreeMap<Integer, Integer>();
@@ -60,7 +60,7 @@ public class BottomView {
 		node3.right = node7;
 
 		BottomView obj = new BottomView();
-		List<Integer> result = obj.getTopView(root);
+		List<Integer> result = obj.getBottomView(root);
 		System.out.println(result);
 	}
 
